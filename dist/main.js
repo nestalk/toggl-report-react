@@ -21086,10 +21086,15 @@
 
 	var _settingsReducer2 = _interopRequireDefault(_settingsReducer);
 
+	var _reportReducer = __webpack_require__(301);
+
+	var _reportReducer2 = _interopRequireDefault(_reportReducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var indexReducer = (0, _reduxImmutablejs.combineReducers)({
-	    settings: _settingsReducer2.default
+	    settings: _settingsReducer2.default,
+	    report: _reportReducer2.default
 	});
 
 	exports.default = indexReducer;
@@ -40099,6 +40104,42 @@
 	var workHoursComponentConnect = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(workHoursComponent);
 
 	exports.default = workHoursComponentConnect;
+
+/***/ },
+/* 301 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _immutable = __webpack_require__(182);
+
+	var _immutable2 = _interopRequireDefault(_immutable);
+
+	var _constants = __webpack_require__(185);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var initialState = _immutable2.default.List();
+
+	var reportReducer = function reportReducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case _constants.ActionTypes.REPORT_SUCCESS:
+	            return _immutable2.default.List(action.report);
+	        case _constants.ActionTypes.REPORT_ERROR:
+	            return _immutable2.default.List();
+	        default:
+	            return state;
+	    }
+	};
+
+	exports.default = reportReducer;
 
 /***/ }
 /******/ ]);
