@@ -9,6 +9,7 @@ import {getStorageData} from './actions';
 import Token from './components/tokenComponent';
 import DatePicker from './components/dateComponent';
 import WorkHours from './components/workHoursComponent';
+import Report from './components/reportComponent';
 
 const store = configureStore(indexReducer);
 store.dispatch(getStorageData());
@@ -20,6 +21,7 @@ render(
             <Token />
             <DatePicker />
             <WorkHours />
+            <Report />
         </section>
     </Provider>,
     document.getElementById('app')

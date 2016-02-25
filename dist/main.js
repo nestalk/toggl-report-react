@@ -78,6 +78,10 @@
 
 	var _workHoursComponent2 = _interopRequireDefault(_workHoursComponent);
 
+	var _reportComponent = __webpack_require__(302);
+
+	var _reportComponent2 = _interopRequireDefault(_reportComponent);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _configureStore2.default)(_indexReducer2.default);
@@ -96,7 +100,8 @@
 	        ),
 	        _react2.default.createElement(_tokenComponent2.default, null),
 	        _react2.default.createElement(_dateComponent2.default, null),
-	        _react2.default.createElement(_workHoursComponent2.default, null)
+	        _react2.default.createElement(_workHoursComponent2.default, null),
+	        _react2.default.createElement(_reportComponent2.default, null)
 	    )
 	), document.getElementById('app'));
 
@@ -40140,6 +40145,124 @@
 	};
 
 	exports.default = reportReducer;
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(158);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var durationString = function durationString(duration) {
+	    var returnString = '';
+	    var regex = /P(?:(\d*)?D)?T(?:(\d*)?H)?(?:(\d*)?M)?(?:(\d*)?S)?/g;
+	    var match = regex.exec(duration);
+	    if (match == null) return returnString;
+
+	    if (typeof match[1] !== 'undefined') {
+	        returnString += match[1] + ' Days, ';
+	    }
+	    if (typeof match[2] !== 'undefined') {
+	        returnString += match[2] + ' Hours, ';
+	    }
+	    if (typeof match[3] !== 'undefined') {
+	        returnString += match[3] + ' Minutes';
+	    }
+
+	    return returnString;
+	};
+
+	var reportComponent = function reportComponent(_ref) {
+	    var report = _ref.report;
+
+	    var createReportRecord = function createReportRecord(record, index) {
+	        return _react2.default.createElement(
+	            'tr',
+	            { key: index },
+	            _react2.default.createElement(
+	                'td',
+	                null,
+	                record.Client
+	            ),
+	            _react2.default.createElement(
+	                'td',
+	                null,
+	                record.Activity
+	            ),
+	            _react2.default.createElement(
+	                'td',
+	                null,
+	                durationString(record.Duration)
+	            )
+	        );
+	    };
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'report' },
+	        _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Details '
+	        ),
+	        _react2.default.createElement(
+	            'table',
+	            null,
+	            _react2.default.createElement(
+	                'thead',
+	                null,
+	                _react2.default.createElement(
+	                    'tr',
+	                    null,
+	                    _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Client'
+	                    ),
+	                    _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Activity'
+	                    ),
+	                    _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Duration'
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'tbody',
+	                null,
+	                report.map(createReportRecord)
+	            )
+	        )
+	    );
+	};
+
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        report: state.get('report').toJS()
+	    };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {};
+	};
+
+	var reportComponentConnect = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(reportComponent);
+
+	exports.default = reportComponentConnect;
 
 /***/ }
 /******/ ]);
