@@ -1,7 +1,14 @@
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
-    entry: './src/js/index.js',
+    entry: {
+        main: './src/js/index.js',
+        vendor: ['react','react-dom','redux','immutable','react-redux',
+            'redux-immutable','keymirror','isomorphic-fetch','moment',
+            'react-datepicker','redux-thunk','redux-immutablejs']
+    },
     output: {
         path: __dirname + '/dist',
         publicPath: '',
@@ -19,6 +26,14 @@ module.exports = {
             template: './src/html/index.html',
             hash: true
         }),
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('styles.css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ]
 };
