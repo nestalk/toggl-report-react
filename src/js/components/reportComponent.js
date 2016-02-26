@@ -31,21 +31,28 @@ const reportComponent = ({report}) => {
             </tr>
         )
     };
-    return (
-        <div className="report">
-            <h2>Details </h2>
-            <table>
-                <thead>
+    if( report.length > 0) {
+        return (
+            <div className="report">
+                <h2>Work Report</h2>
+                <table>
+                    <thead>
                     <tr>
                         <th>Client</th>
                         <th>Activity</th>
                         <th>Duration</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {report.map(createReportRecord)}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
+    return (
+        <div className="report">
+            <h2>No Details </h2>
         </div>
     );
 };

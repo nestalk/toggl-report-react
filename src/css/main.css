@@ -9,6 +9,7 @@ h1{
 .filter{
     display: flex;
     justify-content: space-around;
+    border-bottom: 1px solid #CCC;
 }
 
 .filter > div {
@@ -28,4 +29,19 @@ h1{
 .work-hours-input input{
     width: 50px;
     padding: 6px 10px 5px 10px;
+}
+
+.report h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.report table {
+    width: 100%;
+    padding: 0 25px;
+    table-layout: fixed;
+}
+
+.report th {
+    text-align: left;
 }
