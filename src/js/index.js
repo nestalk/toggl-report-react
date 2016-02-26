@@ -6,10 +6,8 @@ import indexReducer from './reducers/indexReducer';
 import '../css/main.css';
 import {getStorageData} from './actions';
 
-import Token from './components/tokenComponent';
-import DatePicker from './components/dateComponent';
-import WorkHours from './components/workHoursComponent';
 import Report from './components/reportComponent';
+import Filter from './components/filterComponent';
 
 const store = configureStore(indexReducer);
 store.dispatch(getStorageData());
@@ -18,9 +16,7 @@ render(
     <Provider store={store}>
         <section>
             <h1>Toggl Report Using React.js</h1>
-            <Token />
-            <DatePicker />
-            <WorkHours />
+            <Filter />
             <Report />
         </section>
     </Provider>,
