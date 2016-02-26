@@ -3,7 +3,7 @@ import * as Actions from './actions';
 
 export const toggleReport = (token, date, workHours) => {
     return dispatch => {
-        const url = `http://nestalk-toggl-fsharp.azurewebsites.net/?workhours=${workHours}&date=${date.format('YYYY-MM-DD')}&token=${token}`;
+        const url = `http://fsharp.toggl.nestalk.co.uk/?workhours=${workHours}&date=${date.format('YYYY-MM-DD')}&token=${token}`;
         return fetch(url, {mode: 'cors'})
             .then(
                 (response) => {
