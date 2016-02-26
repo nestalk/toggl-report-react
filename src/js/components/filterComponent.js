@@ -8,8 +8,8 @@ const filterComponent = () => {
     return (
         <div className="filter">
             <Token />
-            <DatePicker />
             <WorkHours />
+            <DatePicker />
         </div>
     );
 };

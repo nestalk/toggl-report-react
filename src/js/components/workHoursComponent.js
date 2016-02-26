@@ -4,7 +4,7 @@ import {setWorkHours} from '../actions';
 
 const workHoursComponent = ({hours, setWorkHours}) => {
     return (
-        <div className="token-input">
+        <div className="work-hours-input">
             <label>Work Hours: </label>
             <input type="number" defaultValue={hours} onChange={(e) => setWorkHours(e.target.value)}/>
         </div>

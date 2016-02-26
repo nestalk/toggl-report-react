@@ -1,3 +1,31 @@
 body {
     background: snow;
 }
+
+h1{
+    text-align: center;
+}
+
+.filter{
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter > div {
+    margin: 10px;
+}
+
+.filter label {
+    display: block;
+    font-weight: bold;
+}
+
+.token-input input {
+    width: 100%;
+    padding: 6px 10px 5px 10px;
+}
+
+.work-hours-input input{
+    width: 50px;
+    padding: 6px 10px 5px 10px;
+}
