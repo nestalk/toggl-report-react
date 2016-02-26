@@ -53,9 +53,9 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Run build site
 :: ----------------------
 
-npm install -g webpack
 npm install
-webpack
+.\node_modules\.bin\webpack
+IF !ERRORLEVEL! NEQ 0 goto error
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
