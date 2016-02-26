@@ -29,7 +29,16 @@ module.exports = {
         new ExtractTextPlugin('styles.css'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
         })
-    ],
-    watch: true
+    ]
 };

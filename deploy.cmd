@@ -55,7 +55,7 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 
 echo npm install
 call npm install --silent
-call .\node_modules\.bin\webpack
+call .\node_modules\.bin\webpack --config webpack.production.config.js
 echo npm install finished
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
