@@ -53,9 +53,12 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Run build site
 :: ----------------------
 
-npm install
-.\node_modules\.bin\webpack
-IF !ERRORLEVEL! NEQ 0 goto error
+echo npm install
+call npm install --silent
+call .\node_modules\.bin\webpack
+echo npm install finished
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
